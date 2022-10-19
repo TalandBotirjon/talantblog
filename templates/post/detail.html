@@ -1,0 +1,101 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <div class="container">
+
+        <a class="btn btn-primary" href="{% url 'home' %}">
+            <span class="material-symbols-outlined">arrow_back</span>
+            All Post
+        </a>
+        <br>
+
+        <div class="row">
+
+            <div class="col-lg-8">
+                <!-- Featured blog post-->
+                {% if post %}
+                    <div class="card mb-4">
+                        <h2 class="card-title" style="margin: 4px 4px;">{{ post.title }}</h2>
+                        <div class="card-body">
+                            <a href="{{ post.image.url }}" target="_blank">
+                                <img class="card-img-top" src="{{ post.image.url }}" alt="..."/>
+                            </a>
+                            <b>
+                                <div class="small">{{ post.updated| date:"F d Y" }}</div>
+                            </b>
+                            <p class="card-text">{{ post.text }}</p>
+                            <b class="btn btn-primary" style="float: left;">Category: {{ post.category }}</b>
+                            <b class="btn btn-info" style="float: right;">see : {{ post.sees }}</b>
+                        </div>
+                    </div>
+                    <!-- Nested row for non-featured blog posts-->
+                {% endif %}
+            </div>
+
+            <div class="col-lg-4">
+
+                <div class="card mb-4">
+                    <b>
+                        <div class="card-header">Categories.</div>
+                    </b>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a class='list-group-item list-group-item-action'
+                                           href="{% url 'home' %}">All</a></li>
+                                    {% for category in categories %}
+                                        <li>
+                                            <a class="list-group-item list-group-item-action"
+                                               href="?category={{ category.id }}">
+                                                {{ category.name }}
+                                                <span class="material-symbols-outlined">{{ category.iconname }}</span>
+                                            </a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <b>
+                        <div class="card-header">Last Comments</div>
+                    </b>
+                    {% for comment in comments %}
+                        <div class="card-body">
+                            <a class="btn btn-primary" href="{% url 'detail' comment.post.id %}">Read more →</a>
+                            <h5 class="cart-title" style="margin: 0 0; padding: 0 0;">
+                                Username: {{ comment.user.username }}</h5>
+                            <p style="margin: 0 0; padding: 0 0;" class="card-text"><b>Comment:</b> {{ comment.text }}
+                            </p>
+                            <small style="float: right"><b>{{ comment.created|timesince }}</b></small>
+                        </div>
+                        <hr>
+                    {% empty %}
+                        <p style="text-align: center; padding-top: 15px;">Not comments this post..</p>
+                    {% endfor %}
+                </div>
+
+                <div class="card mb-4">
+
+                    <b>
+                        <div class="card-header">Comment send.</div>
+                    </b>
+                    <form action="." method="post">
+                        {% csrf_token %}
+                        <input type="text" class="form-control btn" name="comment" placeholder="Your comment...">
+                        <hr>
+                        <input class="form-control btn-info" type="submit">
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}
