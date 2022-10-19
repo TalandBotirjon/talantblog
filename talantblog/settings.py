@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-40^vlc$%%w7o01%x-dkk#=l#s)20lds-b361(atfo^#7(o2m$m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://talantblog.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['talantblog.herokuapp.com']
 
 
 # Application definition
@@ -75,6 +75,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 
 
