@@ -12,7 +12,7 @@ class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Poster')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     title = models.CharField(max_length=300, verbose_name="Post title")
-    image = models.ImageField(default='./static/img/news.jpg', upload_to="./static/img", blank=True, null=True)
+    image = models.ImageField(default='static/img/news.jpg', upload_to="static/img/")
     text = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
