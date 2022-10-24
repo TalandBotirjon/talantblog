@@ -31,14 +31,14 @@
                 <li class="nav-item"><a class="nav-link active" href="{% url 'about' %}">About</a></li>
                 <li class="nav-item"><a class="nav-link active" href="{% url 'contact' %}">Contact</a></li>
                 {% if request.user.is_authenticated %}
-                    <li class="nav-item btn-outline-primary"><a class="nav-link active" aria-current="page"
+                    <li class="nav-item btn-outline-primary  rounded-3 me-1"><a class="nav-link active" aria-current="page"
                                                                 href="#">{{ request.user.username }}</a></li>
-                    <li class="nav-item btn-outline-primary"><a class="nav-link active" aria-current="page"
+                    <li class="nav-item btn-outline-primary  rounded-3 ms-1"><a class="nav-link active" aria-current="page"
                                                                 href="{% url 'logout' %}">Log out</a></li>
                 {% else %}
-                    <li class="nav-item btn-outline-primary"><a class="nav-link active" aria-current="page"
+                    <li class="nav-item btn-outline-primary  rounded-3 me-1"><a class="nav-link active" aria-current="page"
                                                                 href="{% url 'login' %}">Login</a></li>
-                    <li class="nav-item btn-primary"><a class="nav-link active" aria-current="page"
+                    <li class="nav-item btn-outline-primary rounded-3 ms-1"><a class="nav-link active" aria-current="page"
                                                         href="{% url 'signup' %}">Register</a>
                     </li>
                 {% endif %}
