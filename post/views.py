@@ -3,6 +3,16 @@ from .models import *
 from django.core.paginator import Paginator
 
 
+# def decorate(func):
+#     def inner(request):
+#         if request.user.is_authenticated:
+#             print(f"{request.user.username} user.")
+#             return func(request)
+#         else:
+#             return redirect('/account/login/')
+#     return inner
+
+# @decorate
 def home(request):
     if request.GET.get('category'):
         posts = Post.objects.filter(category_id=request.GET.get('category'))
