@@ -1,5 +1,4 @@
 # talantblog
-talantdev blog.
 
 <b>Site link: 
 <a href="https://talantblog.herokuapp.com/" target='_blank'>Talant Blog</a>
