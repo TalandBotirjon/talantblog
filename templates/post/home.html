@@ -17,7 +17,10 @@
                                 <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                             </svg>
                             :
-                             {{ post.sees }}</b></p>
+                             {{ post.sees }} || Category: <a class="text-decoration-none text-blue"
+                                               href="?category={{ post.category.id }}">
+                                                {{ post.category }}
+                                            </a> </b></p>
                         <a href="{{ post.image.url }}" target="_blank">
                             <img class="card-img-top" src="{{ post.image.url }}" alt="..."/>
                         </a>
@@ -48,7 +51,10 @@
                                 <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                             </svg>
                                     :
-                                    {{ post.sees }}</b>
+                                    {{ post.sees }} || Category: <a class="text-decoration-none text-blue"
+                                               href="?category={{ post.category.id }}">
+                                                {{ post.category }}
+                                            </a></b>
                                 </div>
                                 <a class="nav-link" href="{% url 'detail' post.id %}">
                                     <h2 class="card-title h6">{{ post.title|slice:40 }}...</h2>
