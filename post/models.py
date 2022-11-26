@@ -1,12 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
+
+
 class Category(models.Model):
     name = models.CharField(max_length=100, verbose_name="Category")
     iconname = models.CharField(max_length=100, default="star", verbose_name="Google icons")
 
     def __str__(self):
         return self.name
+
 
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Poster')
