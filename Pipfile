@@ -9,6 +9,7 @@ django-jazzmin = "*"
 whitenoise = "*"
 gunicorn = "*"
 pillow = "*"
+ascii-magic = "*"
 
 [dev-packages]
 

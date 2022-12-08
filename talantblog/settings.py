@@ -43,6 +43,8 @@ INSTALLED_APPS = [
 
     'account.apps.AccountConfig',
     'post.apps.PostConfig',
+
+    'ascii.apps.AsciiConfig',
 ]
 
 MIDDLEWARE = [
